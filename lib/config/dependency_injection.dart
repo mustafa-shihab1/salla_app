@@ -8,7 +8,7 @@ initSplash() {
   Get.put<SplashController>(SplashController());
 }
 
-finishSplash(){
+disposeSplash(){
   Get.delete<SplashController>();
 }
 
