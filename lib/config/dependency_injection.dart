@@ -13,5 +13,5 @@ disposeSplash(){
 }
 
 initOnBoarding(){
-  finishSplash();
+  disposeSplash();
 }
