@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:home_service_application/config/constants.dart';
+import 'package:home_service_application/config/dependency_injection.dart';
 import 'package:home_service_application/routes/routes.dart';
 
-void main() {
+void main() async{
+  await initModule();
   runApp(const MyApp());
 }
 
