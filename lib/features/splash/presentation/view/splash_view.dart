@@ -10,7 +10,7 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body:Center(
-        child: SvgPicture.asset(ManagerAssets.logo,color: ManagerColors.logoColor,),
+        child: SvgPicture.asset(ManagerAssets.logo,color: ManagerColors.primaryColor,),
       ),
     );
   }
