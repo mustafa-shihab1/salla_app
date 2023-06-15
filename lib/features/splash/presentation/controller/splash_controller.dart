@@ -1,8 +1,14 @@
 import 'package:get/get.dart';
 import 'package:home_service_application/config/constants.dart';
+import 'package:home_service_application/config/dependency_injection.dart';
+import 'package:home_service_application/core/storage/local/app_settings_shared_preferences.dart';
 import 'package:home_service_application/routes/routes.dart';
 
 class SplashController extends GetxController {
+
+  final AppSettingsSharedPreferences _appSettingsSharedPreferences =
+  instance<AppSettingsSharedPreferences>();
+
   @override
   void onInit() {
     super.onInit();
@@ -10,9 +16,13 @@ class SplashController extends GetxController {
         const Duration(
           seconds: Constants.splashDuration,
         ), () {
-      Get.offAllNamed(
-        Routes.onBoardingView,
-      );
+      if (_appSettingsSharedPreferences.getOutBoardingViewed()) {
+        Get.offAllNamed(Routes.loginView);
+      } else {
+        Get.offAllNamed(
+          Routes.onBoardingView,
+        );
+      }
     });
   }
 }
