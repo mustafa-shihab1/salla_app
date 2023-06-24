@@ -1,6 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
+import 'package:home_service_application/core/network/app_api.dart';
+import 'package:home_service_application/core/network/dio_factory.dart';
 import 'package:home_service_application/core/storage/local/app_settings_shared_preferences.dart';
 import 'package:home_service_application/features/auth/presentation/controller/login_controller.dart';
 import 'package:home_service_application/features/on_boarding/presentation/controller/on_boarding_controller.dart';
@@ -9,9 +12,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 final instance = GetIt.instance;
 
-initSplash() {
-  Get.put<SplashController>(SplashController());
-}
 
 initModule() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,6 +24,17 @@ initModule() async {
 
   instance.registerLazySingleton<AppSettingsSharedPreferences>(
           () => AppSettingsSharedPreferences(instance()));
+
+  instance.registerLazySingleton(() => DioFactory());
+  Dio dio = await instance<DioFactory>().getDio();
+  instance.registerLazySingleton<AppApi>(
+        () => AppApi(dio),
+  );
+
+}
+
+initSplash() {
+  Get.put<SplashController>(SplashController());
 }
 
 disposeSplash(){
