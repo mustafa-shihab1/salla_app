@@ -7,4 +7,5 @@ class ManagerStrings {
   static const String onBoardingSubTitle1 = 'Discover a world of shopping at your fingertips';
   static const String onBoardingSubTitle2 = 'Find the perfect products that suit your style\nand needs';
   static const String onBoardingSubTitle3 = 'Shop with ease, convenience, and secure transactions';
+  static const String bearer = 'Bearer';
 }
