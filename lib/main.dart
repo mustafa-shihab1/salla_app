@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         Constants.deviceHeight,
       ),
       builder:(context, child) {
-        return GetMaterialApp(
+        return const GetMaterialApp(
           debugShowCheckedModeBanner: false,
           onGenerateRoute: RouteGenerator.getRoute,
           initialRoute: Routes.splashView,
