@@ -8,7 +8,10 @@ import 'package:home_service_application/core/storage/local/app_settings_shared_
 import 'package:home_service_application/features/auth/presentation/controller/login_controller.dart';
 import 'package:home_service_application/features/on_boarding/presentation/controller/on_boarding_controller.dart';
 import 'package:home_service_application/features/splash/presentation/controller/splash_controller.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../core/internet_checker/internet_checker.dart';
 
 final instance = GetIt.instance;
 
@@ -29,6 +32,12 @@ initModule() async {
   Dio dio = await instance<DioFactory>().getDio();
   instance.registerLazySingleton<AppApi>(
         () => AppApi(dio),
+  );
+
+  instance.registerLazySingleton<NetworkInfo>(
+        () => NetworkInfoImpl(
+      InternetConnection(),
+    ),
   );
 
 }
