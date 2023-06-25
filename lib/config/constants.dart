@@ -1,4 +1,4 @@
-const String basePath = '/api/auth/user';
+const String basePath = '/api';
 
 class Constants {
   static const double deviceWidth = 412;
