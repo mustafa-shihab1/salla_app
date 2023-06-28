@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:home_service_application/features/auth/data/mapper/login_mapper.dart';
-import 'package:home_service_application/features/auth/domain/model/login.dart';
+import 'package:home_service_application/features/auth/domain/model/login_model.dart';
 import 'package:home_service_application/features/auth/domain/repository/login_repository.dart';
 
 import '../../../../config/constants.dart';
@@ -10,16 +10,22 @@ import '../../data/data_source/remote_login_data_source.dart';
 import '../../data/request/login_request.dart';
 
 class LoginRepositoryImpl implements LoginRepository {
-  final RemoteLoginDataSourceImplement _dataSourceImplement;
+  final RemoteLoginDataSource _dataSource;
   final NetworkInfo networkInfo;
 
-  LoginRepositoryImpl(this._dataSourceImplement, this.networkInfo);
+  LoginRepositoryImpl(this._dataSource, this.networkInfo);
 
   @override
   Future<Either<Failure, Login>> login(LoginRequest loginRequest) async {
     if (await networkInfo.isConnected) {
-      final response = await _dataSourceImplement.login(loginRequest);
-      return Right(response.toDomain());
+      try {
+        final response = await _dataSource.login(loginRequest);
+        return Right(response.toDomain());
+      } catch (e) {
+        return Left(
+          ErrorHandler.handle(e).failure,
+        );
+      }
     } else {
       return Left(
         Failure(
