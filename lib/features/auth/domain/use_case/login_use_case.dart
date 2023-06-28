@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:home_service_application/core/error_handler/error_handler.dart';
 import 'package:home_service_application/core/use_case/base_use_case.dart';
 import 'package:home_service_application/features/auth/data/request/login_request.dart';
-import 'package:home_service_application/features/auth/domain/model/login.dart';
+import 'package:home_service_application/features/auth/domain/model/login_model.dart';
 import 'package:home_service_application/features/auth/domain/repository/login_repository.dart';
 
 class LoginUseCaseInput {
