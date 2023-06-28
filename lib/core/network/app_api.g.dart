@@ -13,7 +13,7 @@ class _AppApi implements AppApi {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://student.valuxapps.com';
+    baseUrl ??= 'https://student.valuxapps.com/api/';
   }
 
   final Dio _dio;
@@ -40,7 +40,7 @@ class _AppApi implements AppApi {
     )
             .compose(
               _dio.options,
-              '/api/auth/user/login',
+              'login',
               queryParameters: queryParameters,
               data: _data,
             )
