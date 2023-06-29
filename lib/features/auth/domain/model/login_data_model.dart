@@ -1,7 +1,7 @@
 class LoginDataModel {
   int? id;
-  bool? name;
-  double? email;
+  String? name;
+  String? email;
   String? token;
 
 

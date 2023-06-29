@@ -29,9 +29,11 @@ class ApiConstants {
   static const int sendTimeOutDuration = 120;
   static const int receiveTimeOutDuration = 120;
   static const String token = 'token';
+  static const String name = 'name';
   static const String email = 'email';
   static const String password = 'password';
   static const String message = 'message';
+  static const String loginFailed = 'login Failed';
   static const String errors = 'errors';
   static const String error = 'error';
   static const String badRequest = 'Bad Request';

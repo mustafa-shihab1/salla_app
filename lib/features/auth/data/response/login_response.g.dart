@@ -11,10 +11,13 @@ LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) =>
       data: json['data'] == null
           ? null
           : LoginDataResponse.fromJson(json['data'] as Map<String, dynamic>),
-    )..message = json['message'] as String?;
+    )
+      ..message = json['message'] as String?
+      ..status = json['status'] as bool?;
 
 Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
     <String, dynamic>{
       'message': instance.message,
+      'status': instance.status,
       'data': instance.data,
     };

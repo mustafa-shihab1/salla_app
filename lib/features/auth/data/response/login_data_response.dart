@@ -7,10 +7,10 @@ part 'login_data_response.g.dart';
 class LoginDataResponse{
   @JsonKey(name: 'id')
   int? id;
-  @JsonKey(name: 'name')
-  bool? name;
-  @JsonKey(name: 'email')
-  double? email;
+  @JsonKey(name: ApiConstants.name)
+  String? name;
+  @JsonKey(name: ApiConstants.email)
+  String? email;
   @JsonKey(name: ApiConstants.token)
   String? token;
 

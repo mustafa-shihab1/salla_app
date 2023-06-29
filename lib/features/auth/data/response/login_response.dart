@@ -7,6 +7,9 @@ part 'login_response.g.dart';
 
 @JsonSerializable()
 class LoginResponse extends BaseResponse{
+  @JsonKey(name: 'status')
+  bool? status;
+
   @JsonKey(name: 'data')
   LoginDataResponse? data;
 
