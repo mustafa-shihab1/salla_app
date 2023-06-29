@@ -1,9 +1,11 @@
 import 'package:home_service_application/features/auth/data/response/login_response.dart';
-import 'package:home_service_application/features/auth/domain/model/login.dart';
-import 'package:home_service_application/core/extensions/extensions.dart';
+import 'package:home_service_application/features/auth/domain/model/login_model.dart';
+import 'package:home_service_application/features/auth/data/mapper/login_data_mapper.dart';
 
 extension LoginMapper on LoginResponse {
-  toDomain() {
-    return Login(token: token.onNull());
+  Login toDomain() {
+    return Login(
+      data: data?.toDomain(),
+    );
   }
 }
