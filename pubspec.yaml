@@ -52,6 +52,8 @@ dependencies:
   internet_connection_checker_plus: ^2.0.0
   dartz: ^0.10.1
   flutter_state_render_dialog: ^1.0.5
+  persistent_bottom_nav_bar_v2: ^4.2.8
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
