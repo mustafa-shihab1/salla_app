@@ -92,7 +92,9 @@ class LoginController extends GetxController {
             ),
             onPressed: () {
               Get.back();
+              Get.offAllNamed(Routes.mainView);
             },
+
             color: ManagerColors.primaryColor,
             height: ManagerHeight.h40,
           ),
@@ -103,7 +105,7 @@ class LoginController extends GetxController {
           Duration(
             seconds: Constants.loginTimer,
           ), () {
-        Get.offAllNamed(Routes.homeView);
+        Get.offAllNamed(Routes.mainView);
       });
     });
   }

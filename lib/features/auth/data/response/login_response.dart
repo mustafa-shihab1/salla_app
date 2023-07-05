@@ -1,4 +1,3 @@
-import 'package:home_service_application/config/constants.dart';
 import 'package:home_service_application/core/base_response/base_response.dart';
 import 'package:home_service_application/features/auth/data/response/login_data_response.dart';
 import 'package:json_annotation/json_annotation.dart';

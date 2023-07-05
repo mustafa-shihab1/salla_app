@@ -1,3 +1,4 @@
+import 'package:home_service_application/features/home/data/response/home_response.dart';
 import 'package:retrofit/http.dart';
 import '../../config/constants.dart';
 import 'package:dio/dio.dart';
@@ -16,5 +17,10 @@ abstract class AppApi {
   @POST(RequestConstants.login)
   Future<LoginResponse> login(
       @Field(ApiConstants.email) email,
-      @Field(ApiConstants.password) password);
+      @Field(ApiConstants.password) password
+  );
+
+  @GET(RequestConstants.home)
+  Future<HomeResponse> home();
+
 }

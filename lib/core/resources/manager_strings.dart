@@ -21,5 +21,7 @@ class ManagerStrings {
   static const String loading = 'Loading...';
   static const String ok = 'Ok';
   static const String thanks = 'Thanks';
+  static const String discount = 'DISCOUNT';
+  static const String newProducts = 'New Products';
 
 }
