@@ -1,4 +1,3 @@
-//const String basePath = '/api';
 
 class Constants {
   static const double deviceWidth = 412;
@@ -10,10 +9,19 @@ class Constants {
   static const int loginSecondPartFlex = 3;
   static const double getStateWidgetRenderStateElevation = 3;
   static const int loginTimer = 1;
+  static const int noDiscount = 0;
+}
+
+class GridViewConstants{
+  static const double crossAxisSpacing= 1.0;
+  static const double mainAxisSpacing =1.0;
+  static const double childAspectRatio = 1/1.53;
+  static const int crossAxisCount= 2;
 }
 
 class RequestConstants {
-  static const String login = 'login';//'$basePath/login';
+  static const String login = 'login';
+  static const String home = 'home';
 }
 class ConstantsPrefsKeys {
   static const String onBoardingViewedKey = 'on_boarding_viewed';
