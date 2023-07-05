@@ -8,6 +8,12 @@ import 'package:home_service_application/core/storage/local/app_settings_shared_
 import 'package:home_service_application/features/auth/data/data_source/remote_login_data_source.dart';
 import 'package:home_service_application/features/auth/data/repository_impl/login_repository_impl.dart';
 import 'package:home_service_application/features/auth/presentation/controller/login_controller.dart';
+import 'package:home_service_application/features/home/data/data_source/remote_home_data_source.dart';
+import 'package:home_service_application/features/home/data/repository_impl/home_repository_implementation.dart';
+import 'package:home_service_application/features/home/domain/repository/home_repository.dart';
+import 'package:home_service_application/features/home/domain/use_case/home_usecase.dart';
+import 'package:home_service_application/features/home/presentation/controller/home_controller.dart';
+import 'package:home_service_application/features/main/presentation/controller/main_controller.dart';
 import 'package:home_service_application/features/on_boarding/presentation/controller/on_boarding_controller.dart';
 import 'package:home_service_application/features/splash/presentation/controller/splash_controller.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
@@ -91,4 +97,40 @@ initLoginModule() {
     );
   }
   Get.put<LoginController>(LoginController());
+}
+
+initMainModule() {
+  Get.put<MainController>(MainController());
+  initHomeModule();
+}
+
+
+initHomeModule() {
+  if (!GetIt.I.isRegistered<RemoteHomeDataSource>()) {
+    instance.registerLazySingleton<RemoteHomeDataSource>(
+          () => RemoteHomeDataSourceImplement(
+        instance<AppApi>(),
+      ),
+    );
+  }
+
+  if (!GetIt.I.isRegistered<HomeRepository>()) {
+    instance.registerLazySingleton<HomeRepository>(
+          () => HomeRepositoryImplementation(
+        instance<RemoteHomeDataSource>(),
+        instance<NetworkInfo>(),
+      ),
+    );
+  }
+
+  if (!GetIt.I.isRegistered<HomeUseCase>()) {
+    instance.registerLazySingleton<HomeUseCase>(
+          () => HomeUseCase(
+        instance<HomeRepository>(),
+      ),
+    );
+  }
+
+  Get.put<HomeController>(HomeController());
+
 }
