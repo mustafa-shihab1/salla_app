@@ -13,6 +13,7 @@ import 'package:home_service_application/features/home/presentation/controller/h
 Widget buildGridProduct({
   required ProductsModel model,
   required BuildContext context,
+  // required HomeController controller,
 }) =>
     GetBuilder<HomeController>(builder: (context) {
       return Container(
@@ -78,7 +79,7 @@ Widget buildGridProduct({
                       const Spacer(),
                       IconButton(
                         onPressed: () {
-                          // ShopCubit.get(context).changeFavorites(model.id);
+                          context.changeFavorites(model);
 
                         },
                         icon: CircleAvatar(

@@ -1,3 +1,4 @@
+import 'package:home_service_application/features/category/data/response/category_response.dart';
 import 'package:home_service_application/features/home/data/response/home_response.dart';
 import 'package:retrofit/http.dart';
 import '../../config/constants.dart';
@@ -22,5 +23,8 @@ abstract class AppApi {
 
   @GET(RequestConstants.home)
   Future<HomeResponse> home();
+
+  @GET(RequestConstants.categories)
+  Future<CategoryResponse> category();
 
 }
