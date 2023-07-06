@@ -34,9 +34,10 @@ class CustomBanner extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(ManagerRadius.r14),
                 image: DecorationImage(
-                    image: i.image!.isNotEmpty
+                    image:
+                    i.image!.isNotEmpty
                         ? NetworkImage(i.image!.toString())
-                        : const NetworkImage("https://i.pinimg.com/originals/96/71/5b/96715bbf8952e54608f71d8894ee5472.jpg"),//.banner
+                        : const NetworkImage("https://i.pinimg.com/originals/96/71/5b/96715bbf8952e54608f71d8894ee5472.jpg"),
                     fit: BoxFit.cover),
               ),
               child: Row(
