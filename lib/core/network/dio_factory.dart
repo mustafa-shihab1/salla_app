@@ -13,6 +13,7 @@ class DioFactory {
   Future<Dio> getDio() async {
     Dio dio = Dio();
     Map<String, String> headers = {
+      'lang':'en',
       ApiConstants.authorization:
       getAuthorization(_appSettingsSharedPreferences.getToken()),
       ApiConstants.acceptLanguage : ApiConstants.english,
