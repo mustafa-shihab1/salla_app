@@ -22,6 +22,7 @@ class GridViewConstants{
 class RequestConstants {
   static const String login = 'login';
   static const String home = 'home';
+  static const String categories = 'categories';
 }
 class ConstantsPrefsKeys {
   static const String onBoardingViewedKey = 'on_boarding_viewed';
