@@ -8,6 +8,11 @@ import 'package:home_service_application/core/storage/local/app_settings_shared_
 import 'package:home_service_application/features/auth/data/data_source/remote_login_data_source.dart';
 import 'package:home_service_application/features/auth/data/repository_impl/login_repository_impl.dart';
 import 'package:home_service_application/features/auth/presentation/controller/login_controller.dart';
+import 'package:home_service_application/features/category/data/data_source/remote_category_data_source.dart';
+import 'package:home_service_application/features/category/data/repository_impl/category_repository_implementation.dart';
+import 'package:home_service_application/features/category/domain/repository/category_repository.dart';
+import 'package:home_service_application/features/category/domain/use_case/category_usecase.dart';
+import 'package:home_service_application/features/category/presentation/controller/category_controller.dart';
 import 'package:home_service_application/features/home/data/data_source/remote_home_data_source.dart';
 import 'package:home_service_application/features/home/data/repository_impl/home_repository_implementation.dart';
 import 'package:home_service_application/features/home/domain/repository/home_repository.dart';
@@ -132,5 +137,35 @@ initHomeModule() {
   }
 
   Get.put<HomeController>(HomeController());
+  initCategoryModule();
+}
+
+initCategoryModule() {
+  if (!GetIt.I.isRegistered<RemoteCategoryDataSource>()) {
+    instance.registerLazySingleton<RemoteCategoryDataSource>(
+          () => RemoteCategoryDataSourceImplement(
+        instance<AppApi>(),
+      ),
+    );
+  }
+
+  if (!GetIt.I.isRegistered<CategoryRepository>()) {
+    instance.registerLazySingleton<CategoryRepository>(
+          () => CategoryRepositoryImplementation(
+        instance<RemoteCategoryDataSource>(),
+        instance<NetworkInfo>(),
+      ),
+    );
+  }
+
+  if (!GetIt.I.isRegistered<CategoryUseCase>()) {
+    instance.registerLazySingleton<CategoryUseCase>(
+          () => CategoryUseCase(
+        instance<CategoryRepository>(),
+      ),
+    );
+  }
+
+  Get.put<CategoryController>(CategoryController());
 
 }
