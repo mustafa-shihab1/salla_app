@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:home_service_application/config/constants.dart';
 import 'package:home_service_application/core/resources/manager_colors.dart';
+import 'package:home_service_application/core/resources/manager_strings.dart';
 import 'package:home_service_application/features/on_boarding/presentation/controller/on_boarding_controller.dart';
 
 class OnBoardingView extends StatelessWidget {
@@ -17,7 +18,7 @@ class OnBoardingView extends StatelessWidget {
         backgroundColor: ManagerColors.white,
         elevation: Constants.elevationAppBar,
         actions: [
-          TextButton(onPressed: (){controller.skipPage();}, child: Text('SKIP',style: TextStyle(color: ManagerColors.primaryColor),))
+          TextButton(onPressed: (){controller.skipPage();}, child: const Text(ManagerStrings.skip,style: TextStyle(color: ManagerColors.primaryColor),))
         ],
       ),
       body: PageView(
