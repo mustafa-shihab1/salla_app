@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:home_service_application/core/resources/manager_fonts.dart';
 import 'package:home_service_application/core/resources/manager_styles.dart';
+import 'package:home_service_application/core/widgets/box_shimmer.dart';
 import 'package:home_service_application/features/home/presentation/view/widget/custom_banner.dart';
 import 'package:home_service_application/features/home/presentation/view/widget/custom_products.dart';
 import '../../../../core/resources/manager_colors.dart';
@@ -26,18 +27,7 @@ class HomeView extends StatelessWidget {
                   children: [
                     SizedBox(height: ManagerHeight.h20),
                     controller.homeDataModel.isNull?
-                    SizedBox(
-                      width: double.infinity,
-                      height: ManagerHeight.h160,
-                      child: Shimmer.fromColors(
-                        baseColor: ManagerColors.white,
-                        highlightColor: ManagerColors.lightGrey,
-                        child: Container(
-                          width: double.infinity,
-                          color: ManagerColors.grey,
-                        ),
-                      ),
-                    ):
+                    ShimmerBox(boxHeight: ManagerHeight.h160):
                     const CustomBanner(),
                     SizedBox(height: ManagerHeight.h20),
                     Container(
@@ -52,18 +42,7 @@ class HomeView extends StatelessWidget {
                       ),
                     ),
                     controller.homeDataModel.isNull?
-                    SizedBox(
-                      width: double.infinity,
-                      height: ManagerHeight.h600,
-                      child: Shimmer.fromColors(
-                        baseColor: ManagerColors.white,
-                        highlightColor: ManagerColors.lightGrey,
-                        child: Container(
-                          width: double.infinity,
-                          color: ManagerColors.grey,
-                        ),
-                      ),
-                    ):
+                    ShimmerBox(boxHeight: ManagerHeight.h600):
                     const CustomProducts(),
                   ],
                 ),
