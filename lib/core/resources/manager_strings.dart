@@ -1,6 +1,7 @@
 class ManagerStrings {
   static const String salla = 'Salla';
   static const String noRoutFound = 'No Rout Found';
+  static const String skip = 'SKIP';
   static const String onBoardingTitle1 = 'Welcome to Our Store';
   static const String onBoardingTitle2 = 'Explore a Vast Selection';
   static const String onBoardingTitle3 = 'Seamless Shopping Experience';
