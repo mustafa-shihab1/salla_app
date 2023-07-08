@@ -15,7 +15,7 @@ Widget buildGridProduct({
   required BuildContext context,
   // required HomeController controller,
 }) =>
-    GetBuilder<HomeController>(builder: (context) {
+    GetBuilder<HomeController>(builder: (controller) {
       return Container(
         color: ManagerColors.white,
         child: Column(
@@ -79,8 +79,7 @@ Widget buildGridProduct({
                       const Spacer(),
                       IconButton(
                         onPressed: () {
-                          context.changeFavorites(model);
-
+                          controller.changeFavorites(model);
                         },
                         icon: CircleAvatar(
                           radius: 16.0,

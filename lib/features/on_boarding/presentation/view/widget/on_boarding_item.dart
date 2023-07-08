@@ -55,7 +55,11 @@ class OnBoardingItem extends StatelessWidget {
                       const Spacer(),
                       FloatingActionButton(
                         onPressed: (){
-                          controller.nextPage();
+                          if(controller.isNotLastedPage()) {
+                            controller.nextPage();
+                          }else{
+                            controller.skipPage();
+                          }
                         },
                         child: Icon(Icons.arrow_forward_ios_rounded),
                         backgroundColor: ManagerColors.primaryColor,

@@ -12,9 +12,9 @@ class HomeController extends GetxController {
   late CarouselController carouselController;
   int current = 0;
 
-  HomeDataModel? homeDataModel ;
-  Map<int?, bool?> favorits = {};
-
+  HomeDataModel? homeDataModel;
+  List<String?> names = [];
+  List<String?> images = [];
   final HomeUseCase _homeUseCase = instance<HomeUseCase>();
 
   @override
@@ -27,9 +27,12 @@ class HomeController extends GetxController {
   changeFavorites(ProductsModel model){
     if(model.in_favorites == false){
       model.in_favorites = !model.in_favorites!;
-      favorits[model.id]= model.in_favorites;
+      names.add(model.name!);
+      images.add(model.image!);
     }else{
       model.in_favorites = !model.in_favorites!;
+      names.remove(model.name);
+      images.remove(model.image);
     }
     update();
   }
