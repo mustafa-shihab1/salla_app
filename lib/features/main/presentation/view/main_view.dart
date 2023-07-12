@@ -20,12 +20,13 @@ class MainView extends StatelessWidget {
         builder: (controller) {
           return Scaffold(
             appBar: AppBar(
-              title: Text(ManagerStrings.salla,style: getBoldTextStyle(fontSize: ManagerFontSize.s20, color: ManagerColors.black),),
+              title: Text(controller.appBarTitles[controller.currentIndex],
+                style: getBoldTextStyle(fontSize: ManagerFontSize.s20, color: ManagerColors.black),),
               elevation: Constants.elevationAppBar,
-              actions: const[ Padding(
+              actions: [ controller.currentIndex==0 ? const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.0),
                 child: Icon(Icons.search_rounded,color: ManagerColors.black,),
-              )],
+              ):Container()],
               backgroundColor: ManagerColors.white,
             ),
             body: PersistentTabView(
@@ -47,6 +48,9 @@ class MainView extends StatelessWidget {
               ),
               screens: controller.screens,
               items: controller.bottomNavBarItems,
+              onItemSelected: (value) {
+                controller.changeTitleIndex(value);
+              },
             ),
           );
         },
