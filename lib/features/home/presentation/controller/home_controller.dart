@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 class HomeController extends GetxController {
   late CarouselController carouselController;
   int current = 0;
+  int index = 0;
 
   HomeDataModel? homeDataModel;
   List<String?> names = [];
@@ -56,6 +57,7 @@ class HomeController extends GetxController {
           });
     }, (r) {
       homeDataModel = r.data;
+      index++;
       update();
     });
   }

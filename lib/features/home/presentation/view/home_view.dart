@@ -20,6 +20,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
       builder: (controller) {
+
         return willPopScope(
           child: Scaffold(
             backgroundColor: ManagerColors.white,

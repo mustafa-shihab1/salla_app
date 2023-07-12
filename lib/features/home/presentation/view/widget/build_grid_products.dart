@@ -9,6 +9,7 @@ import 'package:home_service_application/core/resources/manager_strings.dart';
 import 'package:home_service_application/core/resources/manager_styles.dart';
 import 'package:home_service_application/features/home/domain/model/products_model.dart';
 import 'package:home_service_application/features/home/presentation/controller/home_controller.dart';
+import 'package:home_service_application/features/home/presentation/view/product_description_view.dart';
 
 Widget buildGridProduct({
   required ProductsModel model,
@@ -24,27 +25,30 @@ Widget buildGridProduct({
             SizedBox(
               height: ManagerHeight.h30,
             ),
-            Stack(
-              alignment: AlignmentDirectional.topStart,
-              children: [
-                Image(
-                  image: NetworkImage('${model.image}'),
-                  width: double.infinity,
-                  height: ManagerHeight.h150,
-                ),
-                if (model.discount != Constants.noDiscount)
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 5.0, vertical: 1.0),
-                    color: ManagerColors.discountBoxColor,
-                    child: Text(
-                      ManagerStrings.discount,
-                      style: getBoldTextStyle(
-                          fontSize: ManagerFontSize.s12,
-                          color: ManagerColors.white),
-                    ),
+            InkWell(
+              onDoubleTap: () => const ProductDescriptionView(),
+              child: Stack(
+                alignment: AlignmentDirectional.topStart,
+                children: [
+                  Image(
+                    image: NetworkImage('${model.image}'),
+                    width: double.infinity,
+                    height: ManagerHeight.h150,
                   ),
-              ],
+                  if (model.discount != Constants.noDiscount)
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 5.0, vertical: 1.0),
+                      color: ManagerColors.discountBoxColor,
+                      child: Text(
+                        ManagerStrings.discount,
+                        style: getBoldTextStyle(
+                            fontSize: ManagerFontSize.s12,
+                            color: ManagerColors.white),
+                      ),
+                    ),
+                ],
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(12.0),
