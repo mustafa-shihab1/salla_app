@@ -9,6 +9,7 @@ class Constants {
   static const int loginSecondPartFlex = 3;
   static const double getStateWidgetRenderStateElevation = 3;
   static const int loginTimer = 1;
+  static const int registerTimer = 1;
   static const int noDiscount = 0;
 }
 
@@ -21,6 +22,7 @@ class GridViewConstants{
 
 class RequestConstants {
   static const String login = 'login';
+  static const String register = 'register';
   static const String home = 'home';
   static const String categories = 'categories';
 }
@@ -41,8 +43,11 @@ class ApiConstants {
   static const String name = 'name';
   static const String email = 'email';
   static const String password = 'password';
+  static const String phone = 'phone';
+  static const String image = 'image';
   static const String message = 'message';
   static const String loginFailed = 'login Failed';
+  static const String registerFailed = 'Register Failed';
   static const String errors = 'errors';
   static const String error = 'error';
   static const String badRequest = 'Bad Request';

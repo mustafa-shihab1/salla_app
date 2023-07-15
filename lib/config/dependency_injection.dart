@@ -6,8 +6,13 @@ import 'package:home_service_application/core/network/app_api.dart';
 import 'package:home_service_application/core/network/dio_factory.dart';
 import 'package:home_service_application/core/storage/local/app_settings_shared_preferences.dart';
 import 'package:home_service_application/features/auth/data/data_source/remote_login_data_source.dart';
+import 'package:home_service_application/features/auth/data/data_source/remote_register_data_source.dart';
 import 'package:home_service_application/features/auth/data/repository_impl/login_repository_impl.dart';
+import 'package:home_service_application/features/auth/data/repository_impl/register_repository_impl.dart';
+import 'package:home_service_application/features/auth/domain/repository/register_repository.dart';
+import 'package:home_service_application/features/auth/domain/use_case/register_use_case.dart';
 import 'package:home_service_application/features/auth/presentation/controller/login_controller.dart';
+import 'package:home_service_application/features/auth/presentation/controller/register_controller.dart';
 import 'package:home_service_application/features/category/data/data_source/remote_category_data_source.dart';
 import 'package:home_service_application/features/category/data/repository_impl/category_repository_implementation.dart';
 import 'package:home_service_application/features/category/domain/repository/category_repository.dart';
@@ -74,9 +79,72 @@ disposeOnBoarding() {
   Get.delete<OnBoardingController>();
 }
 
+disposeLoginModule() {
+
+  if (GetIt.I.isRegistered<RemoteLoginDataSource>()) {
+    instance.unregister<RemoteLoginDataSource>();
+  }
+
+  if (GetIt.I.isRegistered<LoginRepository>()) {
+    instance.unregister<LoginRepository>();
+  }
+
+  if (GetIt.I.isRegistered<LoginUseCase>()) {
+    instance.unregister<LoginUseCase>();
+  }
+
+  Get.delete<LoginController>();
+}
+
+disposeRegisterModule() {
+  if (GetIt.I.isRegistered<RemoteRegisterDataSource>()) {
+    instance.unregister<RemoteRegisterDataSource>();
+  }
+
+  if (GetIt.I.isRegistered<RegisterRepository>()) {
+    instance.unregister<RegisterRepository>();
+  }
+
+  if (GetIt.I.isRegistered<RegisterUseCase>()) {
+    instance.unregister<RegisterUseCase>();
+  }
+
+  Get.delete<RegisterController>();
+}
+
+initRegisterModule() {
+  disposeLoginModule();
+  if (!GetIt.I.isRegistered<RemoteRegisterDataSource>()) {
+    instance.registerLazySingleton<RemoteRegisterDataSource>(
+          () => RemoteRegisterDataSourceImplement(
+        instance<AppApi>(),
+      ),
+    );
+  }
+
+  if (!GetIt.I.isRegistered<RegisterRepository>()) {
+    instance.registerLazySingleton<RegisterRepository>(
+          () => RegisterRepositoryImpl(
+            instance<RemoteRegisterDataSource>(),
+            instance<NetworkInfo>(),
+      ),
+    );
+  }
+
+  if (!GetIt.I.isRegistered<RegisterUseCase>()) {
+    instance.registerFactory<RegisterUseCase>(
+          () => RegisterUseCase(
+        instance<RegisterRepository>(),
+      ),
+    );
+  }
+  Get.put<RegisterController>(RegisterController());
+}
+
 initLoginModule() {
   disposeSplash();
   disposeOnBoarding();
+  disposeRegisterModule();
   if (!GetIt.I.isRegistered<RemoteLoginDataSource>()) {
     instance.registerLazySingleton<RemoteLoginDataSource>(
           () => RemoteLoginDataSourceImplement(
@@ -103,6 +171,7 @@ initLoginModule() {
   }
   Get.put<LoginController>(LoginController());
 }
+
 
 initMainModule() {
   Get.put<MainController>(MainController());

@@ -1,33 +1,33 @@
 import 'package:dartz/dartz.dart';
 import 'package:home_service_application/core/extensions/extensions.dart';
-import 'package:home_service_application/features/auth/data/mapper/login_mapper.dart';
-import 'package:home_service_application/features/auth/domain/model/login_model.dart';
-import 'package:home_service_application/features/auth/domain/repository/login_repository.dart';
+import 'package:home_service_application/features/auth/data/data_source/remote_register_data_source.dart';
+import 'package:home_service_application/features/auth/data/request/register_request.dart';
+import 'package:home_service_application/features/auth/domain/model/register_model.dart';
+import 'package:home_service_application/features/auth/data/mapper/register_mapper.dart';
+
+import 'package:home_service_application/features/auth/domain/repository/register_repository.dart';
 
 import '../../../../config/constants.dart';
 import '../../../../core/error_handler/error_handler.dart';
 import '../../../../core/internet_checker/internet_checker.dart';
-import '../../data/data_source/remote_login_data_source.dart';
-import '../../data/request/login_request.dart';
-
-class LoginRepositoryImpl implements LoginRepository {
-  final RemoteLoginDataSource _dataSource;
+class RegisterRepositoryImpl implements RegisterRepository {
+  final RemoteRegisterDataSource _dataSource;
   final NetworkInfo networkInfo;
 
-  LoginRepositoryImpl(this._dataSource, this.networkInfo);
+  RegisterRepositoryImpl(this._dataSource, this.networkInfo);
 
   @override
-  Future<Either<Failure, Login>> login(LoginRequest loginRequest) async {
+  Future<Either<Failure, Register>> register(RegisterRequest registerRequest) async {
     if (await networkInfo.isConnected) {
       try {
-        final response = await _dataSource.login(loginRequest);
+        final response = await _dataSource.register(registerRequest);
         if(response.status==true) {
           return Right(response.toDomain());
         } else {
           return Left(
             Failure(
               ResponseCode.BAD_REQUEST.value,
-              ApiConstants.loginFailed.onNull(),
+              ApiConstants.registerFailed.onNull(),
             ),
           );
         }

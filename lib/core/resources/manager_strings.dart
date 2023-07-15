@@ -10,19 +10,27 @@ class ManagerStrings {
   static const String onBoardingSubTitle3 = 'Shop with ease, convenience, and secure transactions';
   static const String bearer = 'Bearer';
   static const String login = 'Login';
+  static const String register = 'Register';
+  static const String name = 'Full Name';
+  static const String phone = 'Phone';
   static const String email = 'Email';
   static const String invalidEmail = 'Invalid Email';
   static const String invalidPassword = 'invalid Password';
+  static const String requiredFullName = 'Full Name is required';
+  static const String requiredPhone = 'Phone is required';
   static const String password = 'Password';
   static const String rememberMe = 'Remember Me';
   static const String loginDescription = 'login now to check out hot offers';
   static const String signup = 'Sign up';
+  static const String signIn = 'SignIn';
   static const String notHaveAccount = 'Don\'t have an account?';
+  static const String haveAccount = 'You have account?';
   static const String forgotPassword = 'Forgot Password ?';
   static const String loading = 'Loading...';
   static const String ok = 'Ok';
   static const String thanks = 'Thanks';
   static const String discount = 'DISCOUNT';
   static const String newProducts = 'New Products';
+  static const String registered = 'User created successfully';
 
 }

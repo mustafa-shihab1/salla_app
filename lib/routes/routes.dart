@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:home_service_application/config/dependency_injection.dart';
 import 'package:home_service_application/core/resources/manager_strings.dart';
 import 'package:home_service_application/features/auth/presentation/view/login_view.dart';
+import 'package:home_service_application/features/auth/presentation/view/register_view.dart';
 import 'package:home_service_application/features/category/presentation/view/category_view.dart';
 import 'package:home_service_application/features/home/presentation/view/home_view.dart';
 import 'package:home_service_application/features/main/presentation/view/main_view.dart';
@@ -14,6 +15,7 @@ class Routes {
   static const String splashView = '/splash_view';
   static const String onBoardingView = '/on_boarding_view';
   static const String loginView = '/login_view';
+  static const String registerView = '/register_view';
   static const String mainView = '/main_view';
 }
 
@@ -33,6 +35,9 @@ class RouteGenerator {
       case Routes.mainView:
         initMainModule();
         return MaterialPageRoute(builder: (_) => MainView());
+      case Routes.registerView:
+        initRegisterModule();
+        return MaterialPageRoute(builder: (_) => RegisterView());
       default:
         return unDefinedRoute();
     }
