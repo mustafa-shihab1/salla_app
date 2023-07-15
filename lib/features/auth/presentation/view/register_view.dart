@@ -9,15 +9,15 @@ import 'package:home_service_application/core/validator/validator.dart';
 import 'package:home_service_application/core/widgets/base_text_form_field.dart';
 import 'package:home_service_application/core/widgets/header_widget.dart';
 import 'package:home_service_application/core/widgets/main_button.dart';
-import 'package:home_service_application/features/auth/presentation/controller/login_controller.dart';
+import 'package:home_service_application/features/auth/presentation/controller/register_controller.dart';
 import 'package:home_service_application/routes/routes.dart';
 
-class LoginView extends StatelessWidget {
+class RegisterView extends StatelessWidget {
   final FieldValidator _failedValidator = FieldValidator();
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<LoginController>(
+    return GetBuilder<RegisterController>(
       builder: (controller) {
         return Scaffold(
           body: Form(
@@ -47,7 +47,7 @@ class LoginView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          ManagerStrings.login,
+                          ManagerStrings.register,
                           style: getBoldTextStyle(
                             fontSize: ManagerFontSize.s34,
                             color: ManagerColors.black,
@@ -55,7 +55,7 @@ class LoginView extends StatelessWidget {
                         ),
                         const SizedBox(height: 3,),
                         Container(
-                          width: ManagerWidth.w80,
+                          width: ManagerWidth.w116,
                           height: ManagerHeight.h4,
                           decoration: const BoxDecoration(
                             color: ManagerColors.primaryColor,
@@ -66,15 +66,16 @@ class LoginView extends StatelessWidget {
 
                           ),
                         ),
-                        const SizedBox(height: 15,),
-                        Text(
-                          ManagerStrings.loginDescription,
-                          style: getBoldTextStyle(
-                            fontSize: ManagerFontSize.s18,
-                            color: ManagerColors.boldGrey,
+                        const SizedBox(height: 30,),
+                        baseTextFormField(
+                          controller: controller.name,
+                          hintText: ManagerStrings.name,
+                          keyboardType: TextInputType.text,
+                          validator: (value) => _failedValidator.validateFullName(
+                            value,
                           ),
                         ),
-                        const SizedBox(height: 30,),
+                        const SizedBox(height: 25,),
                         baseTextFormField(
                           controller: controller.email,
                           hintText: ManagerStrings.email,
@@ -93,43 +94,19 @@ class LoginView extends StatelessWidget {
                             value,
                           ),
                         ),
-                        const SizedBox(height: 20,),
-                        Row(
-                          children: [
-                            Checkbox(
-                              activeColor: ManagerColors.primaryColor,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                  ManagerRadius.r4,
-                                ),
-                              ),
-                              value: true,
-                              onChanged: (status) {
-                                controller.changeRememberMe(status!);
-                              },
-                            ),
-                            Text(
-                              ManagerStrings.rememberMe,
-                              style: getBoldTextStyle(
-                                fontSize: ManagerFontSize.s14,
-                                color: ManagerColors.black,
-                              ),
-                            ),
-                            const Spacer(),
-                            Text(
-                              ManagerStrings.forgotPassword,
-                              style: getBoldTextStyle(
-                                fontSize: ManagerFontSize.s14,
-                                color: ManagerColors.primaryColor,
-                              ),
-                            ),
-                            const SizedBox(width: 10,)
-                          ],
+                        const SizedBox(height: 25,),
+                        baseTextFormField(
+                          controller: controller.phone,
+                          hintText: ManagerStrings.phone,
+                          keyboardType: TextInputType.number,
+                          validator: (value) => _failedValidator.validatePhone(
+                            value,
+                          ),
                         ),
-                        SizedBox(height: ManagerHeight.h70),
+                        SizedBox(height: ManagerHeight.h50),
                         mainButton(
                             child: Text(
-                              ManagerStrings.login,
+                              ManagerStrings.signup,
                               style: getBoldTextStyle(
                                 fontSize: ManagerFontSize.s18,
                                 color: ManagerColors.white,
@@ -140,7 +117,7 @@ class LoginView extends StatelessWidget {
                             height: ManagerHeight.h44,
                             onPressed: () {
                               if(controller.formKey.currentState!.validate()){
-                                controller.login(context);
+                                controller.register(context);
                               }
                             }
                         ),
@@ -148,21 +125,21 @@ class LoginView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              ManagerStrings.notHaveAccount,
+                              ManagerStrings.haveAccount,
                               style: getBoldTextStyle(
                                   fontSize: ManagerFontSize.s14,
                                   color: ManagerColors.black),
                             ),
                             mainButton(
                                 child: Text(
-                                  ManagerStrings.signup,
+                                  ManagerStrings.signIn,
                                   style: getBoldTextStyle(
                                     fontSize: ManagerFontSize.s14,
                                     color: ManagerColors.primaryColor,
                                   ),
                                 ),
                                 onPressed: () {
-                                   Get.offAllNamed(Routes.registerView);
+                                  Get.offAllNamed(Routes.loginView);
                                 }),
                           ],
                         ),
