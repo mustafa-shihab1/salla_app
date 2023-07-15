@@ -1,3 +1,4 @@
+import 'package:home_service_application/features/auth/data/response/register_response.dart';
 import 'package:home_service_application/features/category/data/response/category_response.dart';
 import 'package:home_service_application/features/home/data/response/home_response.dart';
 import 'package:retrofit/http.dart';
@@ -20,6 +21,14 @@ abstract class AppApi {
       @Field(ApiConstants.email) email,
       @Field(ApiConstants.password) password
   );
+
+  @POST(RequestConstants.register)
+  Future<RegisterResponse> register(
+      @Field(ApiConstants.name) name,
+      @Field(ApiConstants.email) email,
+      @Field(ApiConstants.password) password,
+      @Field(ApiConstants.phone) phone,
+      );
 
   @GET(RequestConstants.home)
   Future<HomeResponse> home();
