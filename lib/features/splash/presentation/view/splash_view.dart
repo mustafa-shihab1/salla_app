@@ -8,9 +8,18 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body:Center(
-        child: SvgPicture.asset(ManagerAssets.logo,color: ManagerColors.primaryColor,),
+    return Container(
+      decoration: BoxDecoration(
+        gradient: ManagerColors.splashGradientColor,
+      ),
+      child: Scaffold(
+        backgroundColor: ManagerColors.transparent,
+        body: Center(
+          child: SvgPicture.asset(
+            ManagerAssets.logo,
+            color: ManagerColors.primaryColor,
+          ),
+        ),
       ),
     );
   }
