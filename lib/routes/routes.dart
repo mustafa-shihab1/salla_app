@@ -4,11 +4,9 @@ import 'package:home_service_application/config/dependency_injection.dart';
 import 'package:home_service_application/core/resources/manager_strings.dart';
 import 'package:home_service_application/features/auth/presentation/view/login_view.dart';
 import 'package:home_service_application/features/auth/presentation/view/register_view.dart';
-import 'package:home_service_application/features/category/presentation/view/category_view.dart';
-import 'package:home_service_application/features/home/presentation/view/home_view.dart';
 import 'package:home_service_application/features/main/presentation/view/main_view.dart';
 import 'package:home_service_application/features/on_boarding/presentation/view/on_boarding_view.dart';
-import 'package:home_service_application/features/profile/presentation/view/profile_view.dart';
+import 'package:home_service_application/features/search/presentation/view/search_view.dart';
 import 'package:home_service_application/features/splash/presentation/view/splash_view.dart';
 
 class Routes {
@@ -17,6 +15,7 @@ class Routes {
   static const String loginView = '/login_view';
   static const String registerView = '/register_view';
   static const String mainView = '/main_view';
+  static const String searchView = '/search_view';
 }
 
 class RouteGenerator {
@@ -34,10 +33,13 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => LoginView());
       case Routes.mainView:
         initMainModule();
-        return MaterialPageRoute(builder: (_) => MainView());
+        return MaterialPageRoute(builder: (_) => const MainView());
       case Routes.registerView:
         initRegisterModule();
         return MaterialPageRoute(builder: (_) => RegisterView());
+      case Routes.searchView:
+        initSearchModule();
+        return MaterialPageRoute(builder: (_) => const SearchView());
       default:
         return unDefinedRoute();
     }
