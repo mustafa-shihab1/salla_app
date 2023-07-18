@@ -8,10 +8,8 @@ import 'package:home_service_application/core/resources/manager_fonts.dart';
 import 'package:home_service_application/core/resources/manager_sizes.dart';
 import 'package:home_service_application/core/resources/manager_strings.dart';
 import 'package:home_service_application/core/resources/manager_styles.dart';
-import 'package:home_service_application/core/storage/local/app_settings_shared_preferences.dart';
 import 'package:home_service_application/core/widgets/main_button.dart';
 import 'package:home_service_application/features/auth/domain/use_case/register_use_case.dart';
-import 'package:home_service_application/core/extensions/extensions.dart';
 import 'package:home_service_application/routes/routes.dart';
 
 class RegisterController extends GetxController {
@@ -99,7 +97,7 @@ class RegisterController extends GetxController {
         retryAction: () {},
       );
       Future.delayed(
-          Duration(
+          const Duration(
             seconds: Constants.registerTimer,
           ), () {
         Get.offAllNamed(Routes.loginView);

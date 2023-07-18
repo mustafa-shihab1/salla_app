@@ -6,7 +6,7 @@ import '../../../../core/resources/manager_sizes.dart';
 
 
 class FavoritesView extends StatelessWidget {
-  FavoritesView({super.key});
+  const FavoritesView({super.key});
 
   @override
   Widget build(BuildContext context) {

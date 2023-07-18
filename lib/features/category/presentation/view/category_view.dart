@@ -7,7 +7,7 @@ import 'package:home_service_application/features/category/presentation/controll
 import 'package:home_service_application/features/category/presentation/view/widget/category_item.dart';
 
 class CategoryView extends StatelessWidget {
-  CategoryView({super.key});
+  const CategoryView({super.key});
 
   @override
   Widget build(BuildContext context) {

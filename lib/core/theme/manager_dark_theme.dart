@@ -15,7 +15,7 @@ ThemeData managerDarkThemeData() {
     //scaffoldBackgroundColor: ManagerColors.scaffoldBackgroundColorDark,
 
     /// APP BAR THEME
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       centerTitle: true,
       //color: ManagerColors.greyLight,
       //elevation: Constants.elevationAppBar,

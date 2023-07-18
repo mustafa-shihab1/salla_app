@@ -15,6 +15,8 @@ import 'package:home_service_application/routes/routes.dart';
 class LoginView extends StatelessWidget {
   final FieldValidator _failedValidator = FieldValidator();
 
+  LoginView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<LoginController>(
