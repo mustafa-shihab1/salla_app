@@ -16,7 +16,7 @@ class CustomBanner extends StatelessWidget {
           carouselController: controller.carouselController,
           options: CarouselOptions(
             enlargeCenterPage: true,
-            scrollPhysics: BouncingScrollPhysics(),
+            scrollPhysics: const BouncingScrollPhysics(),
             viewportFraction: 0.85,
             autoPlay: true,
             height: ManagerHeight.h160,

@@ -1,6 +1,7 @@
 import 'package:home_service_application/features/auth/data/response/register_response.dart';
 import 'package:home_service_application/features/category/data/response/category_response.dart';
 import 'package:home_service_application/features/home/data/response/home_response.dart';
+import 'package:home_service_application/features/search/data/response/search_response.dart';
 import 'package:retrofit/http.dart';
 import '../../config/constants.dart';
 import 'package:dio/dio.dart';
@@ -35,5 +36,10 @@ abstract class AppApi {
 
   @GET(RequestConstants.categories)
   Future<CategoryResponse> category();
+
+  @POST(RequestConstants.search)
+  Future<SearchResponse> search(
+      @Field(ApiConstants.text) text,
+      );
 
 }

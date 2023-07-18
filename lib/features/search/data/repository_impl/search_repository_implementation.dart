@@ -3,22 +3,23 @@ import 'package:home_service_application/config/constants.dart';
 import 'package:home_service_application/core/error_handler/error_handler.dart';
 import 'package:home_service_application/core/extensions/extensions.dart';
 import 'package:home_service_application/core/internet_checker/internet_checker.dart';
-import 'package:home_service_application/features/home/data/data_source/remote_home_data_source.dart';
-import 'package:home_service_application/features/home/data/mapper/home_mapper.dart';
-import 'package:home_service_application/features/home/domain/model/home_model.dart';
-import 'package:home_service_application/features/home/domain/repository/home_repository.dart';
+import 'package:home_service_application/features/search/data/data_source/remote_search_data_source.dart';
+import 'package:home_service_application/features/search/data/mapper/search_mapper.dart';
+import 'package:home_service_application/features/search/data/request/search_request.dart';
+import 'package:home_service_application/features/search/domain/model/search_model.dart';
+import 'package:home_service_application/features/search/domain/repository/search_repository.dart';
 
-class HomeRepositoryImplementation implements HomeRepository {
-  final RemoteHomeDataSource _dataSource;
+class SearchRepositoryImplementation implements SearchRepository {
+  final RemoteSearchDataSource _dataSource;
   final NetworkInfo _networkInfo;
 
-  HomeRepositoryImplementation(this._dataSource, this._networkInfo);
+  SearchRepositoryImplementation(this._dataSource, this._networkInfo);
 
   @override
-  Future<Either<Failure, HomeModel>> home() async {
+  Future<Either<Failure, Search>> search(SearchRequest searchRequest) async {
     if (await _networkInfo.isConnected) {
       try {
-        final response = await _dataSource.homeData();
+        final response = await _dataSource.search(searchRequest);
         if(response.status==true) {
           return Right(response.toDomain());
         } else {
