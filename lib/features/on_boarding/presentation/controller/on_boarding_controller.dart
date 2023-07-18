@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:home_service_application/config/constants.dart';
 import 'package:home_service_application/config/dependency_injection.dart';
 import 'package:home_service_application/core/resources/manager_assets.dart';

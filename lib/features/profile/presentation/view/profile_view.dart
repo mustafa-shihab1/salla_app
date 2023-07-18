@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:home_service_application/core/resources/manager_colors.dart';
 import 'package:home_service_application/core/resources/manager_fonts.dart';
 import 'package:home_service_application/core/resources/manager_sizes.dart';
 import 'package:home_service_application/core/resources/manager_styles.dart';
-import 'package:home_service_application/features/auth/presentation/controller/login_controller.dart';
 import 'package:home_service_application/features/profile/presentation/view/custom_profile_header.dart';
 import 'package:home_service_application/features/profile/presentation/view/widget/custom_settings_item.dart';
 
 class ProfileView extends StatelessWidget {
-  ProfileView({Key? key}) : super(key: key);
+  const ProfileView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

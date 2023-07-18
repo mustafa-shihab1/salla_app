@@ -1,5 +1,4 @@
 import 'package:home_service_application/config/dependency_injection.dart';
-import 'package:home_service_application/features/home/domain/model/change_favorites_model.dart';
 import 'package:home_service_application/features/home/domain/model/home_data_model.dart';
 import 'package:home_service_application/features/home/domain/model/products_model.dart';
 import 'package:home_service_application/features/home/domain/use_case/home_usecase.dart';

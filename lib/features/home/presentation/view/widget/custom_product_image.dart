@@ -14,7 +14,7 @@ class CustomProductImage extends StatelessWidget {
       left: 0,
       right: 0,
       top: 0,
-      child: Container(
+      child: SizedBox(
         width: double.maxFinite,
         height: ManagerHeight.h375,
         child: Image.network(controller.homeDataModel!.products![controller.index].image!,fit: BoxFit.fill,),

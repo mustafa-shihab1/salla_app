@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:home_service_application/core/resources/manager_colors.dart';
 import 'package:home_service_application/core/resources/manager_icons.dart';
 import 'package:home_service_application/core/resources/manager_sizes.dart';
-import 'package:home_service_application/core/resources/manager_strings.dart';
 import 'package:home_service_application/features/category/presentation/view/category_view.dart';
 import 'package:home_service_application/features/favorites/presentation/view/favorites_view.dart';
 import 'package:home_service_application/features/home/presentation/view/home_view.dart';
@@ -21,10 +20,10 @@ class MainController extends GetxController {
   ];
 
   List<Widget> screens = [
-    HomeView(),
-    CategoryView(),
-    FavoritesView(),
-    ProfileView(),
+    const HomeView(),
+    const CategoryView(),
+    const FavoritesView(),
+    const ProfileView(),
   ];
 
   changeTitleIndex(int value){

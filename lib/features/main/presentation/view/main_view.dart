@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:home_service_application/config/constants.dart';
 import 'package:home_service_application/core/resources/manager_colors.dart';
 import 'package:home_service_application/core/resources/manager_fonts.dart';
-import 'package:home_service_application/core/resources/manager_strings.dart';
 import 'package:home_service_application/core/resources/manager_styles.dart';
 import 'package:home_service_application/features/main/presentation/controller/main_controller.dart';
+import 'package:home_service_application/routes/routes.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import '../../../../core/resources/manager_sizes.dart';
 import '../../../../core/widgets/will_pop_scope.dart';
@@ -23,9 +23,11 @@ class MainView extends StatelessWidget {
               title: Text(controller.appBarTitles[controller.currentIndex],
                 style: getBoldTextStyle(fontSize: ManagerFontSize.s20, color: ManagerColors.black),),
               elevation: Constants.elevationAppBar,
-              actions: [ controller.currentIndex==0 ? const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
-                child: Icon(Icons.search_rounded,color: ManagerColors.black,),
+              centerTitle: true,
+              actions: [ controller.currentIndex==0 ? Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: IconButton(icon: const Icon(Icons.search_rounded,color: ManagerColors.boldGrey,),
+                    onPressed:()=> Get.toNamed(Routes.searchView)),
               ):Container()],
               backgroundColor: ManagerColors.white,
             ),

@@ -12,7 +12,7 @@ class SliderIndicator extends StatelessWidget {
     return GetBuilder<OnBoardingController>(
         builder: (controller) =>
             SmoothPageIndicator(
-                effect: ExpandingDotsEffect(
+                effect: const ExpandingDotsEffect(
                   activeDotColor: ManagerColors.primaryColor,
                   dotHeight: 9,
                   expansionFactor: 3,

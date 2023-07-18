@@ -25,6 +25,11 @@ import 'package:home_service_application/features/home/domain/use_case/home_usec
 import 'package:home_service_application/features/home/presentation/controller/home_controller.dart';
 import 'package:home_service_application/features/main/presentation/controller/main_controller.dart';
 import 'package:home_service_application/features/on_boarding/presentation/controller/on_boarding_controller.dart';
+import 'package:home_service_application/features/search/data/data_source/remote_search_data_source.dart';
+import 'package:home_service_application/features/search/data/repository_impl/search_repository_implementation.dart';
+import 'package:home_service_application/features/search/domain/repository/search_repository.dart';
+import 'package:home_service_application/features/search/domain/use_case/search_usecase.dart';
+import 'package:home_service_application/features/search/presentation/controller/search_controller.dart';
 import 'package:home_service_application/features/splash/presentation/controller/splash_controller.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -236,5 +241,36 @@ initCategoryModule() {
   }
 
   Get.put<CategoryController>(CategoryController());
+
+}
+
+initSearchModule(){
+
+  if (!GetIt.I.isRegistered<RemoteSearchDataSource>()) {
+    instance.registerLazySingleton<RemoteSearchDataSource>(
+          () => RemoteSearchDataSourceImplement(
+        instance<AppApi>(),
+      ),
+    );
+  }
+
+  if (!GetIt.I.isRegistered<SearchRepository>()) {
+    instance.registerLazySingleton<SearchRepository>(
+          () => SearchRepositoryImplementation(
+        instance<RemoteSearchDataSource>(),
+        instance<NetworkInfo>(),
+      ),
+    );
+  }
+
+  if (!GetIt.I.isRegistered<SearchUseCase>()) {
+    instance.registerLazySingleton<SearchUseCase>(
+          () => SearchUseCase(
+        instance<SearchRepository>(),
+      ),
+    );
+  }
+
+  Get.put<SearchsController>(SearchsController());
 
 }

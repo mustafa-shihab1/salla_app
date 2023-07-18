@@ -61,8 +61,8 @@ class OnBoardingItem extends StatelessWidget {
                             controller.skipPage();
                           }
                         },
-                        child: Icon(Icons.arrow_forward_ios_rounded),
                         backgroundColor: ManagerColors.primaryColor,
+                        child: const Icon(Icons.arrow_forward_ios_rounded),
                       )
                     ],
                   ),

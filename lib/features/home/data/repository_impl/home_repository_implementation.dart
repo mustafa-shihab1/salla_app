@@ -19,15 +19,16 @@ class HomeRepositoryImplementation implements HomeRepository {
     if (await _networkInfo.isConnected) {
       try {
         final response = await _dataSource.homeData();
-        if(response.status==true)
+        if(response.status==true) {
           return Right(response.toDomain());
-        else
+        } else {
           return Left(
             Failure(
               ResponseCode.BAD_REQUEST.value,
               ApiConstants.message.onNull(),
             ),
           );
+        }
       } catch (e) {
         return Left(ErrorHandler.handle(e).failure);
       }
