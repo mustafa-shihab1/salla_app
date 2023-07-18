@@ -25,6 +25,7 @@ class RequestConstants {
   static const String register = 'register';
   static const String home = 'home';
   static const String categories = 'categories';
+  static const String search = 'products/search';
 }
 class ConstantsPrefsKeys {
   static const String onBoardingViewedKey = 'on_boarding_viewed';
@@ -55,4 +56,5 @@ class ApiConstants {
   static const String acceptLanguage = 'Accept-Language';
   static const String english = 'en';
   static const String arabic = 'ar';
+  static const String text = 'text';
 }

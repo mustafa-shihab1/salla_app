@@ -10,6 +10,7 @@ class ManagerStrings {
   static const String onBoardingSubTitle3 = 'Shop with ease, convenience, and secure transactions';
   static const String bearer = 'Bearer';
   static const String login = 'Login';
+  static const String seeAll = 'see all';
   static const String register = 'Register';
   static const String name = 'Full Name';
   static const String phone = 'Phone';
