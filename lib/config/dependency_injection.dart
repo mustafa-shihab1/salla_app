@@ -30,6 +30,11 @@ import 'package:home_service_application/features/search/data/repository_impl/se
 import 'package:home_service_application/features/search/domain/repository/search_repository.dart';
 import 'package:home_service_application/features/search/domain/use_case/search_usecase.dart';
 import 'package:home_service_application/features/search/presentation/controller/search_controller.dart';
+import 'package:home_service_application/features/profile/data/data_source/remote_profile_data_source.dart';
+import 'package:home_service_application/features/profile/data/repository_impl/profile_repository_impl.dart';
+import 'package:home_service_application/features/profile/domain/repository/profile_repository.dart';
+import 'package:home_service_application/features/profile/domain/use_case/profile_use_case.dart';
+import 'package:home_service_application/features/profile/presentation/controller/profile_controller.dart';
 import 'package:home_service_application/features/splash/presentation/controller/splash_controller.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -212,6 +217,33 @@ initHomeModule() {
 
   Get.put<HomeController>(HomeController());
   initCategoryModule();
+  initProfileModule();
+}
+
+initProfileModule(){
+  if (!GetIt.I.isRegistered<RemoteProfileDataSource>()) {
+    instance.registerLazySingleton<RemoteProfileDataSource>(
+          () => RemoteProfileDataSourceImplement(
+        instance<AppApi>(),
+      ),
+    );
+  }
+  if (!GetIt.I.isRegistered<ProfileRepository>()) {
+    instance.registerLazySingleton<ProfileRepository>(
+          () => ProfileRepositoryImpl(
+        instance<RemoteProfileDataSource>(),
+        instance<NetworkInfo>(),
+      ),
+    );
+  }
+  if (!GetIt.I.isRegistered<ProfileUseCase>()) {
+    instance.registerLazySingleton<ProfileUseCase>(
+          () => ProfileUseCase(
+        instance<ProfileRepository>(),
+      ),
+    );
+  }
+  Get.put<SettingsController>(SettingsController());
 }
 
 initCategoryModule() {
