@@ -5,7 +5,7 @@ import 'package:home_service_application/config/dependency_injection.dart';
 import 'package:home_service_application/features/profile/domain/model/profile_data_model.dart';
 import 'package:home_service_application/features/profile/domain/use_case/profile_use_case.dart';
 
-class SettingsController extends GetxController{
+class ProfileController extends GetxController{
 
   List<String> settingTabs = [
     'Change Password',

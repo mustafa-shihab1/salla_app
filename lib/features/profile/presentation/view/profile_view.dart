@@ -13,7 +13,7 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<SettingsController>(
+    return GetBuilder<ProfileController>(
       builder: (controller) {
         return Scaffold(
           backgroundColor: ManagerColors.white,

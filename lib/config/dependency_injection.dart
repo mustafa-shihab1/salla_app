@@ -243,7 +243,7 @@ initProfileModule(){
       ),
     );
   }
-  Get.put<SettingsController>(SettingsController());
+  Get.put<ProfileController>(ProfileController());
 }
 
 initCategoryModule() {

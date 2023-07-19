@@ -15,7 +15,7 @@ class CustomSettingsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder(
-      init: SettingsController(),
+      init: ProfileController(),
       builder: (controller) {
         return Padding(
           padding: const EdgeInsets.all(20.0),
