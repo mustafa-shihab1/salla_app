@@ -2,6 +2,7 @@ import 'package:home_service_application/features/auth/data/response/register_re
 import 'package:home_service_application/features/category/data/response/category_response.dart';
 import 'package:home_service_application/features/home/data/response/home_response.dart';
 import 'package:home_service_application/features/search/data/response/search_response.dart';
+import 'package:home_service_application/features/profile/data/response/profile_response.dart';
 import 'package:retrofit/http.dart';
 import '../../config/constants.dart';
 import 'package:dio/dio.dart';
@@ -41,5 +42,8 @@ abstract class AppApi {
   Future<SearchResponse> search(
       @Field(ApiConstants.text) text,
       );
+
+  @GET(RequestConstants.getProfile)
+  Future<ProfileResponse> getProfile();
 
 }
