@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:home_service_application/features/auth/data/response/register_response.dart';
 import 'package:home_service_application/features/category/data/response/category_response.dart';
 import 'package:home_service_application/features/home/data/response/home_response.dart';
@@ -45,5 +47,12 @@ abstract class AppApi {
 
   @GET(RequestConstants.getProfile)
   Future<ProfileResponse> getProfile();
+
+  @POST(RequestConstants.updateProfile)
+  Future<ProfileResponse> updateProfile(
+      @Field(ApiConstants.name) name,
+      @Field(ApiConstants.email) email,
+      @Field(ApiConstants.phone) phone,
+      );
 
 }

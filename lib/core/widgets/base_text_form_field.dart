@@ -25,7 +25,7 @@ TextFormField baseTextFormField({
       filled: true,
       contentPadding: EdgeInsets.symmetric(
         horizontal: ManagerWidth.w16,
-        vertical: ManagerHeight.h6,
+        vertical: ManagerHeight.h18,
       ),
       fillColor: ManagerColors.white,
       hintText: hintText.onNull(),
@@ -38,7 +38,7 @@ TextFormField baseTextFormField({
           color: ManagerColors.grey,
         ),
         borderRadius: BorderRadius.circular(
-          ManagerRadius.r6,
+          ManagerRadius.r24,
         ),
       ),
       focusedBorder: OutlineInputBorder(
@@ -46,7 +46,7 @@ TextFormField baseTextFormField({
           color: ManagerColors.grey,
         ),
         borderRadius: BorderRadius.circular(
-          ManagerRadius.r6,
+          ManagerRadius.r24,
         ),
       ),
     ),

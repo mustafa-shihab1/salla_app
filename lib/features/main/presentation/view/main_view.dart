@@ -21,7 +21,7 @@ class MainView extends StatelessWidget {
           return Scaffold(
             appBar: AppBar(
               title: Text(controller.appBarTitles[controller.currentIndex],
-                style: getBoldTextStyle(fontSize: ManagerFontSize.s20, color: ManagerColors.black),),
+                style: getBoldTextStyle(fontSize: ManagerFontSize.s20, color: ManagerColors.black)),
               elevation: Constants.elevationAppBar,
               centerTitle: true,
               actions: [ controller.currentIndex==0 ? Padding(
