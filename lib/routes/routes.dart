@@ -6,6 +6,7 @@ import 'package:home_service_application/features/auth/presentation/view/login_v
 import 'package:home_service_application/features/auth/presentation/view/register_view.dart';
 import 'package:home_service_application/features/main/presentation/view/main_view.dart';
 import 'package:home_service_application/features/on_boarding/presentation/view/on_boarding_view.dart';
+import 'package:home_service_application/features/profile/presentation/view/edit_profile_view.dart';
 import 'package:home_service_application/features/search/presentation/view/search_view.dart';
 import 'package:home_service_application/features/splash/presentation/view/splash_view.dart';
 
@@ -16,6 +17,7 @@ class Routes {
   static const String registerView = '/register_view';
   static const String mainView = '/main_view';
   static const String searchView = '/search_view';
+  static const String editProfileView = '/update-profile';
 }
 
 class RouteGenerator {
@@ -40,6 +42,9 @@ class RouteGenerator {
       case Routes.searchView:
         initSearchModule();
         return MaterialPageRoute(builder: (_) => const SearchView());
+      case Routes.editProfileView:
+        initSearchModule();
+        return MaterialPageRoute(builder: (_) => const EditProfileView());
       default:
         return unDefinedRoute();
     }

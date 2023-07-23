@@ -29,6 +29,8 @@ class ManagerStrings {
   static const String forgotPassword = 'Forgot Password ?';
   static const String loading = 'Loading...';
   static const String ok = 'Ok';
+  static const String editProfile = 'Edit Profile';
+  static const String updated = 'Profile Updated Successfully';
   static const String thanks = 'Thanks';
   static const String discount = 'DISCOUNT';
   static const String newProducts = 'New Products';

@@ -15,10 +15,11 @@ Widget mainButton({
   return MaterialButton(
     padding: padding,
     onPressed: onPressed.onNull(),
+
     shape: shapeBorder ??
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
-            ManagerRadius.r6,
+            ManagerRadius.r24,
           ),
         ),
     color: color.onNull(),

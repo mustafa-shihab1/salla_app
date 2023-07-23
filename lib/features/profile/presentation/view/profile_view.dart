@@ -20,43 +20,20 @@ class ProfileView extends StatelessWidget {
           body: Column(
             children: [
               CustomProfileHeader(
-                  coverColor: ManagerColors.primaryColor,
+                  coverColor: ManagerColors.white,
                   profileImage: controller.profileDataModel!.image!,
               ),
               const SizedBox(
-                height: 50,
+                height: 70,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.baseline,
-                textBaseline: TextBaseline.alphabetic,
-                children: [
-                  const SizedBox(
-                    width: 15,
-                  ),
-                  Text(
-                    controller.profileDataModel!.name!,
-                    style: getBoldTextStyle(
-                        fontSize: ManagerFontSize.s18,
-                        color: ManagerColors.black),
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  InkWell(
-                      child: Image.asset(
-                      'assets/images/edit.png',
-                    width: 18,
-                    color: ManagerColors.primaryColor,
-                  ),
-                    onTap: () {
-
-                    },
-                  ),
-                ],
+              Text(
+                controller.profileDataModel!.name!,
+                style: getBoldTextStyle(
+                    fontSize: ManagerFontSize.s18,
+                    color: ManagerColors.black),
               ),
               const SizedBox(
-                height: 15,
+                height: 10,
               ),
               Text(
                 controller.profileDataModel!.email!,
@@ -75,7 +52,12 @@ class ProfileView extends StatelessWidget {
                       height: 1.0,
                     ),
                   ),
-                  itemBuilder: (context, index) => CustomSettingsItem(index: index),
+                  itemBuilder: (context, index) => InkWell(
+                    onTap: () {
+                      controller.changeSettingsScreen(index);
+                    },
+                      child: CustomSettingsItem(index: index),
+                  ),
                   itemCount: 4,
                 ),
               ),

@@ -16,15 +16,15 @@ class CustomProfileHeader extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Container(
-          height: 130,
+          height: 85,
           width: double.infinity,
           color: coverColor,
         ),
         Positioned(
-          top: 80,
+          top: 30,
           child: Container(
-            width: 96,
-            height: 96,
+            width: 120,
+            height: 120,
             decoration: BoxDecoration(
               color: Colors.white,
               shape: BoxShape.circle,

@@ -98,42 +98,24 @@ class LoginView extends StatelessWidget {
                         const SizedBox(height: 20,),
                         Row(
                           children: [
-                            Checkbox(
-                              activeColor: ManagerColors.primaryColor,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                  ManagerRadius.r4,
-                                ),
-                              ),
-                              value: true,
-                              onChanged: (status) {
-                                controller.changeRememberMe(status!);
-                              },
-                            ),
-                            Text(
-                              ManagerStrings.rememberMe,
-                              style: getBoldTextStyle(
-                                fontSize: ManagerFontSize.s14,
-                                color: ManagerColors.black,
-                              ),
-                            ),
-                            const Spacer(),
+                            const SizedBox(width: 10,),
                             Text(
                               ManagerStrings.forgotPassword,
                               style: getBoldTextStyle(
-                                fontSize: ManagerFontSize.s14,
+                                fontSize: ManagerFontSize.s16,
                                 color: ManagerColors.primaryColor,
                               ),
                             ),
                             const SizedBox(width: 10,)
                           ],
                         ),
-                        SizedBox(height: ManagerHeight.h70),
+                        SizedBox(height: ManagerHeight.h40),
                         mainButton(
+                          padding: EdgeInsets.symmetric(vertical: ManagerHeight.h16),
                             child: Text(
                               ManagerStrings.login,
                               style: getBoldTextStyle(
-                                fontSize: ManagerFontSize.s18,
+                                fontSize: ManagerFontSize.s22,
                                 color: ManagerColors.white,
                               ),
                             ),
@@ -152,14 +134,14 @@ class LoginView extends StatelessWidget {
                             Text(
                               ManagerStrings.notHaveAccount,
                               style: getBoldTextStyle(
-                                  fontSize: ManagerFontSize.s14,
+                                  fontSize: ManagerFontSize.s16,
                                   color: ManagerColors.black),
                             ),
                             mainButton(
                                 child: Text(
                                   ManagerStrings.signup,
                                   style: getBoldTextStyle(
-                                    fontSize: ManagerFontSize.s14,
+                                    fontSize: ManagerFontSize.s16,
                                     color: ManagerColors.primaryColor,
                                   ),
                                 ),

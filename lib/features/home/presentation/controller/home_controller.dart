@@ -37,6 +37,17 @@ class HomeController extends GetxController {
     update();
   }
 
+  getFavorites(){
+    if(homeDataModel!.products!.isNotEmpty){
+      for(int i = 0; i < homeDataModel!.products!.length; i++){
+        if(homeDataModel!.products![i].in_favorites == true){
+          names.add(homeDataModel!.products![i].name!);
+          images.add(homeDataModel!.products![i].image!);
+        }
+      }
+    }
+  }
+
   void change(int index) {
     current = index;
     update();
@@ -57,6 +68,7 @@ class HomeController extends GetxController {
     }, (r) {
       homeDataModel = r.data;
       index++;
+      getFavorites();
       update();
     });
   }

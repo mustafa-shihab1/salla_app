@@ -243,6 +243,13 @@ initProfileModule(){
       ),
     );
   }
+  if (!GetIt.I.isRegistered<UpdateProfileUseCase>()) {
+    instance.registerLazySingleton<UpdateProfileUseCase>(
+          () => UpdateProfileUseCase(
+        instance<ProfileRepository>(),
+      ),
+    );
+  }
   Get.put<ProfileController>(ProfileController());
 }
 
