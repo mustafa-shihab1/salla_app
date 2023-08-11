@@ -1,4 +1,4 @@
-# home_service_application
+# Salla App
 
 Build First Application with Clean-Architecture
 
