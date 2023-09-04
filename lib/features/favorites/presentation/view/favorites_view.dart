@@ -37,7 +37,7 @@ class FavoritesView extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 10,),
-                  const Icon(Icons.arrow_forward_ios_outlined,size: 20,),
+                  // const Icon(Icons.arrow_forward_ios_outlined,size: 20,),
                 ],
               ),
             ),
