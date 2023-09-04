@@ -6,6 +6,7 @@ import 'package:home_service_application/features/auth/presentation/view/login_v
 import 'package:home_service_application/features/auth/presentation/view/register_view.dart';
 import 'package:home_service_application/features/main/presentation/view/main_view.dart';
 import 'package:home_service_application/features/on_boarding/presentation/view/on_boarding_view.dart';
+import 'package:home_service_application/features/product_details/presentation/view/product_details_view.dart';
 import 'package:home_service_application/features/profile/presentation/view/edit_profile_view.dart';
 import 'package:home_service_application/features/search/presentation/view/search_view.dart';
 import 'package:home_service_application/features/splash/presentation/view/splash_view.dart';
@@ -18,6 +19,7 @@ class Routes {
   static const String mainView = '/main_view';
   static const String searchView = '/search_view';
   static const String editProfileView = '/update-profile';
+  static const String productDetailsView = '/product_details_view';
 }
 
 class RouteGenerator {
@@ -45,6 +47,8 @@ class RouteGenerator {
       case Routes.editProfileView:
         initSearchModule();
         return MaterialPageRoute(builder: (_) => const EditProfileView());
+        case Routes.productDetailsView:
+        return MaterialPageRoute(builder: (_) => const ProductDetailsView());
       default:
         return unDefinedRoute();
     }
