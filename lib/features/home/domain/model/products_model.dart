@@ -8,6 +8,7 @@ class ProductsModel{
   String? description;
   bool? in_favorites;
    bool? in_cart;
+   List<String>? images;
 
   ProductsModel({this.id,
     this.price,
@@ -18,6 +19,7 @@ class ProductsModel{
     this.description,
     this.in_favorites,
     this.in_cart,
+    this.images
   });
 
 

@@ -14,6 +14,7 @@ extension ProductsMapper on ProductsResponse{
       discount: discount.onNull(),
       in_cart: in_cart.onNull(),
       in_favorites: in_favorites.onNull(),
+      images: images!.map((e) => e.onNull()).toList(),
     );
   }
 }
