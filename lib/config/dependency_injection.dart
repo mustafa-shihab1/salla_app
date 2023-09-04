@@ -313,3 +313,7 @@ initSearchModule(){
   Get.put<SearchsController>(SearchsController());
 
 }
+
+disposeSearchModule(){
+  Get.delete<SearchsController>();
+}
