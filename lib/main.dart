@@ -5,7 +5,7 @@ import 'package:home_service_application/config/constants.dart';
 import 'package:home_service_application/config/dependency_injection.dart';
 import 'package:home_service_application/routes/routes.dart';
 
-void main() async{
+void main() async {
   await initModule();
   runApp(const MyApp());
 }
@@ -16,19 +16,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      splitScreenMode: true,
-      minTextAdapt: true,
-      designSize: const Size(
-        Constants.deviceWidth,
-        Constants.deviceHeight,
-      ),
-      builder:(context, child) {
-        return const GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          onGenerateRoute: RouteGenerator.getRoute,
-          initialRoute: Routes.splashView,
-        );
-      }
-    );
+        splitScreenMode: true,
+        minTextAdapt: true,
+        designSize: const Size(
+          Constants.deviceWidth,
+          Constants.deviceHeight,
+        ),
+        builder: (context, child) {
+          return const GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            onGenerateRoute: RouteGenerator.getRoute,
+            initialRoute: Routes.splashView,
+          );
+        });
   }
 }

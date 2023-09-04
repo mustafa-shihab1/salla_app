@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:home_service_application/config/dependency_injection.dart';
 import 'package:home_service_application/core/resources/manager_colors.dart';
 import 'package:home_service_application/core/resources/manager_fonts.dart';
 import 'package:home_service_application/core/resources/manager_sizes.dart';
@@ -27,13 +28,13 @@ class SearchView extends StatelessWidget {
                   color: ManagerColors.black,
               ),
             ),
-
             centerTitle: true,
             leading: IconButton(
                 onPressed: () {
                   controller.searchController.clear();
                   controller.searchList.clear();
                   Get.back();
+                  disposeSearchModule();
                 }, icon: const Icon(Icons.arrow_back_ios),color: ManagerColors.boldGrey,),
           ),
           body: Padding(
@@ -66,7 +67,6 @@ class SearchView extends StatelessWidget {
                   child: Text('Search for products', style: getBoldTextStyle(fontSize: 18, color: ManagerColors.grey)),
                 )
                     : Expanded(
-
                   child: ListView.separated(
                       itemBuilder: (context, index) => InkWell(
                         onTap: () {
@@ -88,7 +88,6 @@ class SearchView extends StatelessWidget {
           ),
         );
       },
-
     );
   }
 }

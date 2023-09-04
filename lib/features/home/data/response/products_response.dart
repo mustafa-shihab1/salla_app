@@ -23,7 +23,8 @@ class ProductsResponse{
   bool? in_favorites;
   @JsonKey(name:'in_cart')
   bool? in_cart;
-
+  @JsonKey(name:'images')
+  List<String>? images;
   ProductsResponse({this.id,
     this.price,
     this.old_price,
@@ -33,6 +34,7 @@ class ProductsResponse{
     this.description,
     this.in_favorites,
     this.in_cart,
+    this.images
   });
 
 

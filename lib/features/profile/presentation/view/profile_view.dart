@@ -23,8 +23,8 @@ class ProfileView extends StatelessWidget {
                   coverColor: ManagerColors.white,
                   profileImage: controller.profileDataModel!.image!,
               ),
-              const SizedBox(
-                height: 70,
+              SizedBox(
+                height: ManagerHeight.h70,
               ),
               Text(
                 controller.profileDataModel!.name!,
@@ -32,8 +32,8 @@ class ProfileView extends StatelessWidget {
                     fontSize: ManagerFontSize.s18,
                     color: ManagerColors.black),
               ),
-              const SizedBox(
-                height: 10,
+              SizedBox(
+                height: ManagerHeight.h10,
               ),
               Text(
                 controller.profileDataModel!.email!,

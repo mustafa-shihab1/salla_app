@@ -6,16 +6,17 @@ import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_state_render_dialog/flutter_state_render_dialog.dart';
 import 'package:get/get.dart';
+import 'package:home_service_application/routes/routes.dart';
 
 class HomeController extends GetxController {
   late CarouselController carouselController;
+  final HomeUseCase _homeUseCase = instance<HomeUseCase>();
+  HomeDataModel? homeDataModel;
+
   int current = 0;
   int index = 0;
-
-  HomeDataModel? homeDataModel;
   List<String?> names = [];
   List<String?> images = [];
-  final HomeUseCase _homeUseCase = instance<HomeUseCase>();
 
   @override
   void onInit() {
@@ -53,6 +54,9 @@ class HomeController extends GetxController {
     update();
   }
 
+  void navigateToProductDetails() {
+    Get.toNamed(Routes.productDetailsView);
+  }
 
   Future<void> home() async {
     BuildContext context = Get.context as BuildContext;

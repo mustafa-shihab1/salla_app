@@ -17,6 +17,8 @@ ProductsResponse _$ProductsResponseFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String?,
       in_favorites: json['in_favorites'] as bool?,
       in_cart: json['in_cart'] as bool?,
+      images:
+          (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$ProductsResponseToJson(ProductsResponse instance) =>
@@ -30,4 +32,5 @@ Map<String, dynamic> _$ProductsResponseToJson(ProductsResponse instance) =>
       'description': instance.description,
       'in_favorites': instance.in_favorites,
       'in_cart': instance.in_cart,
+      'images': instance.images,
     };

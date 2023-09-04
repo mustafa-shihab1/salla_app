@@ -13,7 +13,7 @@ class ErrorHandler implements Exception {
   late Failure failure;
 
   ErrorHandler.handle(dynamic error) {
-    if (error is DioError) {
+    if (error is DioException) {
       failure = Failure(
           error.response!.statusCode ?? ResponseCode.BAD_REQUEST.value,
           error.response?.data[ApiConstants.message] ??
