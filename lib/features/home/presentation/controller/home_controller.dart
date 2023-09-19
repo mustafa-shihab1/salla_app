@@ -6,6 +6,7 @@ import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_state_render_dialog/flutter_state_render_dialog.dart';
 import 'package:get/get.dart';
+import 'package:home_service_application/features/product_details/presentation/view/product_details_view.dart';
 import 'package:home_service_application/routes/routes.dart';
 
 class HomeController extends GetxController {
@@ -54,8 +55,9 @@ class HomeController extends GetxController {
     update();
   }
 
-  void navigateToProductDetails() {
-    Get.toNamed(Routes.productDetailsView);
+  void navigateToProductDetails(ProductsModel model ) {
+    Get.to(() => ProductDetailsView(productsModel: model,));
+    //Get.toNamed(Routes.productDetailsView);
   }
 
   Future<void> home() async {

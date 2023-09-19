@@ -29,7 +29,7 @@ Widget buildGridProduct({
               children: [
                 InkWell(
                   onTap: () {
-                    controller.navigateToProductDetails();
+                    controller.navigateToProductDetails(model);
                   },
                   child: Image(
                     image: NetworkImage('${model.image}'),
@@ -89,7 +89,11 @@ Widget buildGridProduct({
                         icon: CircleAvatar(
                           radius: 16.0,
                           backgroundColor: model.in_favorites! ? ManagerColors.primaryColor:ManagerColors.grey,
-                          child: ManagerIcons.favorite
+                          child: Icon(
+                            Icons.favorite_border,
+                            color: ManagerColors.white,
+                            size: ManagerIconSize.s16,
+                          ),
                         ),
                       ),
                     ],

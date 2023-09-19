@@ -31,7 +31,7 @@ class CustomDescription extends StatelessWidget {
               child: Text(
                 name,
                 style: getBoldTextStyle(
-                  fontSize: ManagerFontSize.s14,
+                  fontSize: ManagerFontSize.s20,
                   color: ManagerColors.black,
                 ),
                 maxLines: 3,
@@ -47,11 +47,12 @@ class CustomDescription extends StatelessWidget {
                   direction: Axis.horizontal,
                   allowHalfRating: true,
                   itemCount: 5,
-                  itemSize: ManagerIconSize.s24,
+                  itemSize: ManagerIconSize.s20,
                   itemBuilder: (context, i) => const Icon(
                     Icons.star,
                     color: Colors.amber,
                   ),
+                  initialRating: 4.5,
                   unratedColor: ManagerColors.lightGrey,
                   onRatingUpdate: onRatingUpdate,
                 ),
@@ -64,7 +65,7 @@ class CustomDescription extends StatelessWidget {
                     '${price.toString()} \$',
                     style: getBoldTextStyle(
                       fontSize: ManagerFontSize.s16,
-                      color: ManagerColors.black,
+                      color: ManagerColors.primaryColor,
                     ),
                   ),
                 ),
@@ -73,15 +74,25 @@ class CustomDescription extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: ManagerHeight.h20,
+          height: ManagerHeight.h28,
+        ),
+        Text(
+          'Description',
+          style: getBoldTextStyle(
+            fontSize: ManagerFontSize.s18,
+            color: ManagerColors.boldGrey,
+          ),
+        ),
+        SizedBox(
+          height: ManagerHeight.h10,
         ),
         Text(
           description,
           style: getBoldTextStyle(
-            fontSize: ManagerFontSize.s16,
-            color: ManagerColors.boldGrey,
+            fontSize: ManagerFontSize.s14,
+            color: ManagerColors.grey,
           ),
-        )
+        ),
       ],
     );
   }

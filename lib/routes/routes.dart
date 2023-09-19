@@ -47,8 +47,8 @@ class RouteGenerator {
       case Routes.editProfileView:
         initSearchModule();
         return MaterialPageRoute(builder: (_) => const EditProfileView());
-        case Routes.productDetailsView:
-        return MaterialPageRoute(builder: (_) => const ProductDetailsView());
+        // case Routes.productDetailsView:
+        // return MaterialPageRoute(builder: (_) => const ProductDetailsView());
       default:
         return unDefinedRoute();
     }

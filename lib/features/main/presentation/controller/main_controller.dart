@@ -44,7 +44,7 @@ class MainController extends GetxController {
       iconSize: ManagerRadius.r26,
     ),
     PersistentBottomNavBarItem(
-      icon: ManagerIcons.favorites,
+      icon: Icon(ManagerIcons.favorites),
       activeColorPrimary: ManagerColors.primaryColor,
       inactiveColorPrimary: ManagerColors.black,
       iconSize: ManagerRadius.r26,
