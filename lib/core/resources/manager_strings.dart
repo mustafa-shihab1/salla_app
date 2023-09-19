@@ -36,6 +36,6 @@ class ManagerStrings {
   static const String discount = 'DISCOUNT';
   static const String newProducts = 'New Products';
   static const String registered = 'User created successfully';
-  static const String addToCard = 'Add to Card';
+  static const String addToCart = 'Add to Cart';
 
 }
