@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:home_service_application/features/auth/data/response/register_response.dart';
+import 'package:home_service_application/features/cart/data/response/cart_response.dart';
 import 'package:home_service_application/features/category/data/response/category_response.dart';
 import 'package:home_service_application/features/home/data/response/home_response.dart';
 import 'package:home_service_application/features/search/data/response/search_response.dart';
@@ -54,5 +55,8 @@ abstract class AppApi {
       @Field(ApiConstants.email) email,
       @Field(ApiConstants.phone) phone,
       );
+
+  @GET(RequestConstants.carts)
+  Future<CartResponse> getCart();
 
 }

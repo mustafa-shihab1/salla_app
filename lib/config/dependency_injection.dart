@@ -13,6 +13,11 @@ import 'package:home_service_application/features/auth/domain/repository/registe
 import 'package:home_service_application/features/auth/domain/use_case/register_use_case.dart';
 import 'package:home_service_application/features/auth/presentation/controller/login_controller.dart';
 import 'package:home_service_application/features/auth/presentation/controller/register_controller.dart';
+import 'package:home_service_application/features/cart/data/data_source/remote_cart_data_source.dart';
+import 'package:home_service_application/features/cart/data/repository_impl/cart_repository_impl.dart';
+import 'package:home_service_application/features/cart/domain/repository/cart_repository.dart';
+import 'package:home_service_application/features/cart/domain/use_case/cart_use_case.dart';
+import 'package:home_service_application/features/cart/presentation/controller/cart_controller.dart';
 import 'package:home_service_application/features/category/data/data_source/remote_category_data_source.dart';
 import 'package:home_service_application/features/category/data/repository_impl/category_repository_implementation.dart';
 import 'package:home_service_application/features/category/domain/repository/category_repository.dart';
@@ -316,4 +321,30 @@ initSearchModule(){
 
 disposeSearchModule(){
   Get.delete<SearchsController>();
+}
+
+initCartModule(){
+  if (!GetIt.I.isRegistered<RemoteCartDataSource>()) {
+    instance.registerLazySingleton<RemoteCartDataSource>(
+          () => RemoteCartDataSourceImplement(
+        instance<AppApi>(),
+      ),
+    );
+  }
+  if (!GetIt.I.isRegistered<CartRepository>()) {
+    instance.registerLazySingleton<CartRepository>(
+          () => CartRepositoryImpl(
+        instance<RemoteCartDataSource>(),
+        instance<NetworkInfo>(),
+      ),
+    );
+  }
+  if (!GetIt.I.isRegistered<CartUseCase>()) {
+    instance.registerLazySingleton<CartUseCase>(
+          () => CartUseCase(
+        instance<CartRepository>(),
+      ),
+    );
+  }
+  Get.put<CartController>(CartController());
 }

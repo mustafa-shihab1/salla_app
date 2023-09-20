@@ -37,5 +37,6 @@ class ManagerStrings {
   static const String newProducts = 'New Products';
   static const String registered = 'User created successfully';
   static const String addToCart = 'Add to Cart';
+  static const String myCart = 'My Cart';
 
 }
