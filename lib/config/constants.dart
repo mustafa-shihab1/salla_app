@@ -28,6 +28,8 @@ class RequestConstants {
   static const String search = 'products/search';
   static const String getProfile = 'profile';
   static const String updateProfile = 'update-profile';
+  static const String carts = 'carts';
+  static const String deleteCarts = 'carts/2';
 }
 class ConstantsPrefsKeys {
   static const String onBoardingViewedKey = 'on_boarding_viewed';
