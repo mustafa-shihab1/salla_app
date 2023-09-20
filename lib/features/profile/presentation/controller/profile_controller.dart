@@ -21,10 +21,10 @@ class ProfileController extends GetxController{
 
   List<String> settingTabs = [
     'Edit Profile',
+    'My Cart',
     'Change Password',
     'Language',
     'About App',
-    'Rate App',
   ];
 
   void changeSettingsScreen(int index){
@@ -32,7 +32,7 @@ class ProfileController extends GetxController{
       Get.toNamed(Routes.editProfileView);
     }
     else if (index == 1) {
-      // Get.toNamed(Routes.changePasswordView);
+      Get.toNamed(Routes.cartView);
     }
     else if (index == 2) {
       // Get.toNamed(Routes.changeLanguageView);
