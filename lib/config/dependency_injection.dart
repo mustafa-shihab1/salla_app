@@ -16,6 +16,9 @@ import 'package:home_service_application/features/auth/presentation/controller/r
 import 'package:home_service_application/features/cart/data/data_source/remote_cart_data_source.dart';
 import 'package:home_service_application/features/cart/data/repository_impl/cart_repository_impl.dart';
 import 'package:home_service_application/features/cart/domain/repository/cart_repository.dart';
+import 'package:home_service_application/features/cart/domain/use_case/add_remove_cart_use_case.dart';
+import 'package:home_service_application/features/cart/domain/use_case/add_remove_cart_use_case.dart';
+import 'package:home_service_application/features/cart/domain/use_case/add_remove_cart_use_case.dart';
 import 'package:home_service_application/features/cart/domain/use_case/cart_use_case.dart';
 import 'package:home_service_application/features/cart/presentation/controller/cart_controller.dart';
 import 'package:home_service_application/features/category/data/data_source/remote_category_data_source.dart';
@@ -331,6 +334,7 @@ initCartModule(){
       ),
     );
   }
+
   if (!GetIt.I.isRegistered<CartRepository>()) {
     instance.registerLazySingleton<CartRepository>(
           () => CartRepositoryImpl(
@@ -346,5 +350,13 @@ initCartModule(){
       ),
     );
   }
+  if(!GetIt.I.isRegistered<AddRemoveCartUseCase>()){
+    instance.registerLazySingleton<AddRemoveCartUseCase>(
+          () => AddRemoveCartUseCase(
+        instance<CartRepository>(),
+      ),
+    );
+  }
   Get.put<CartController>(CartController());
 }
+
