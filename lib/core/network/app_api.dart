@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:home_service_application/features/auth/data/response/register_response.dart';
+import 'package:home_service_application/features/cart/data/response/add_remove_cart_response.dart';
 import 'package:home_service_application/features/cart/data/response/cart_response.dart';
 import 'package:home_service_application/features/category/data/response/category_response.dart';
 import 'package:home_service_application/features/home/data/response/home_response.dart';
@@ -58,5 +59,10 @@ abstract class AppApi {
 
   @GET(RequestConstants.carts)
   Future<CartResponse> getCart();
+
+  @POST(RequestConstants.carts)
+  Future<AddRemoveCartResponse> addOrRemove(
+      @Field(ApiConstants.productId) productId,
+      );
 
 }
